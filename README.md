@@ -1,9 +1,12 @@
 # DataFlow
 
 > Landing page: [dataflow.kz](http://dataflow.kz/)
+> 
 > Web Platform (Workspace): [dataflow.app](https://dataflow.onrender.com/)
-> Web Page Design Repository (Frontend): [github.com/dataflow]()
-> Figma Design Concept (Future): [figma.com/dataflow]()
+> 
+> Web Page Design Repository (Frontend): [github.com/dataflow](https://github.com/silvermete0r/dataflow-landing-page-frontend)
+> 
+> Figma Design Concept (Future): [figma.com/dataflow](https://www.figma.com/proto/hX2RjECC7pgF0Ffsh3A3U3/Samsung-inovation?page-id=0%3A1&type=design&node-id=22-12566&viewport=158%2C73%2C0.26&t=bVB27a0DgLnjz1k6-1&scaling=scale-down&starting-point-node-id=1%3A2&mode=design)
 
 <!-- PROJECT SHIELDS -->
 [![Contributors][contributors-shield]][contributors-url] [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url]
