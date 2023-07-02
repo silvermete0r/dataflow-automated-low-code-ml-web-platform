@@ -14,7 +14,6 @@ import pyperclip
 import requests
 from pycaret import classification, regression
 import openai
-from captcha.image import ImageCaptcha
 from joblib import dump as jb_dump, load as jb_load
 import random, string
 import socket
@@ -97,47 +96,6 @@ def send_simple_message(text):
             "to": "Gregor Melon <supwithproject@gmail.com>",
             "subject": "User Feedback",
             "text": text})
-
-def captcha_control():
-    #control if the captcha is correct
-    if 'controllo' not in st.session_state or st.session_state['controllo'] == False:
-        st.title("Captcha Control")
-        
-        # define the session state for control if the captcha is correct
-        st.session_state['controllo'] = False
-        col1, col2 = st.columns(2)
-        
-        # define the session state for the captcha text because it doesn't change during refreshes 
-        if 'Captcha' not in st.session_state:
-                st.session_state['Captcha'] = ''.join(random.choices(string.ascii_uppercase + string.digits, k=length_captcha))
-        print("the captcha is: ", st.session_state['Captcha'])
-        
-        #setup the captcha widget
-        image = ImageCaptcha(width=width, height=height)
-        data = image.generate(st.session_state['Captcha'])
-        col1.image(data)
-        capta2_text = col2.text_area('Enter captcha text', height=30)
-        
-        
-        if st.button("Verify the code"):
-            print(capta2_text, st.session_state['Captcha'])
-            capta2_text = capta2_text.replace(" ", "")
-            # if the captcha is correct, the controllo session state is set to True
-            if st.session_state['Captcha'].lower() == capta2_text.lower().strip():
-                del st.session_state['Captcha']
-                col1.empty()
-                col2.empty()
-                st.session_state['controllo'] = True
-                st.experimental_rerun() 
-            else:
-                # if the captcha is wrong, the controllo session state is set to False and the captcha is regenerated
-                st.error("🚨 Il codice captcha è errato, riprova")
-                del st.session_state['Captcha']
-                del st.session_state['controllo']
-                st.experimental_rerun()
-        else:
-            #wait for the button click
-            st.stop()
 
 
 # Set Page Config
@@ -569,54 +527,46 @@ if selected == 'Training':
             df = pd.read_csv(f'datasets/{st.session_state["user_id"]}')
             if ml_type == 'Classification':
                 target = st.selectbox('Select You Target', df.columns)
-                if 'controllo' not in st.session_state or st.session_state['controllo'] == False:
-                    captcha_control()
-                else:
-                    if st.button('Start Training'):
-                        classification.setup(df, target=target, index=True)
-                        setup_df = classification.pull()
-                        with st.spinner('Generating Experiment Settings...'):
-                            st.info('This is the ML Experiment Settings')
-                            st.dataframe(setup_df)
-                        st.session_state['target'] = target
-                        st.session_state['df_columns'] = df.columns
-                        with st.spinner('Training...'):
-                            best_model = classification.compare_models()
-                            compare_df = classification.pull()
-                            st.info('This is the ML Experiment Results')
-                            st.dataframe(compare_df)
-                        with st.spinner('Saving Model...'):
-                            time.sleep(2)
-                            best_model
-                            classification.save_model(best_model, f'models/{user_id}')
-                            st.success('Training is completed!')
-                            st.info('You can download trained model in «Download» section.')
-                        del st.session_state['controllo']
-            else:
-                target = st.selectbox('Select You Target', df.columns)
-                if 'controllo' not in st.session_state or st.session_state['controllo'] == False:
-                    captcha_control()
-                else:
-                    if st.button('Start Training'):
-                        regression.setup(df, target=target, index=True)
-                        setup_df = regression.pull()
+                if st.button('Start Training'):
+                    classification.setup(df, target=target, index=True)
+                    setup_df = classification.pull()
+                    with st.spinner('Generating Experiment Settings...'):
                         st.info('This is the ML Experiment Settings')
                         st.dataframe(setup_df)
-                        st.session_state['target'] = target
-                        st.session_state['df_columns'] = df.columns
-                        with st.spinner('Training...'):
-                            best_model = regression.compare_models()
-                            compare_df = regression.pull()
-                            st.info('This is the ML Experiment Results')
-                            st.dataframe(compare_df)
-                        with st.spinner('Saving Model...'):
-                            time.sleep(2)
-                            best_model
-                            regression.save_model(best_model, f'models/{user_id}')
-                            st.success('Training is completed!')
-                            st.info('You can download trained model in «Download» section.')
-                        st.session_state['best_model'] = user_id + '.pkl'
-                        del st.session_state['controllo']
+                    st.session_state['target'] = target
+                    st.session_state['df_columns'] = df.columns
+                    with st.spinner('Training...'):
+                        best_model = classification.compare_models()
+                        compare_df = classification.pull()
+                        st.info('This is the ML Experiment Results')
+                        st.dataframe(compare_df)
+                    with st.spinner('Saving Model...'):
+                        time.sleep(2)
+                        best_model
+                        classification.save_model(best_model, f'models/{user_id}')
+                        st.success('Training is completed!')
+                        st.info('You can download trained model in «Download» section.')
+            else:
+                target = st.selectbox('Select You Target', df.columns)
+                if st.button('Start Training'):
+                    regression.setup(df, target=target, index=True)
+                    setup_df = regression.pull()
+                    st.info('This is the ML Experiment Settings')
+                    st.dataframe(setup_df)
+                    st.session_state['target'] = target
+                    st.session_state['df_columns'] = df.columns
+                    with st.spinner('Training...'):
+                        best_model = regression.compare_models()
+                        compare_df = regression.pull()
+                        st.info('This is the ML Experiment Results')
+                        st.dataframe(compare_df)
+                    with st.spinner('Saving Model...'):
+                        time.sleep(2)
+                        best_model
+                        regression.save_model(best_model, f'models/{user_id}')
+                        st.success('Training is completed!')
+                        st.info('You can download trained model in «Download» section.')
+                    st.session_state['best_model'] = user_id + '.pkl'
         except Exception as e:
             st.warning(f'Something Went Wrong, Please Try Again. Error: {e}!')
     else:
