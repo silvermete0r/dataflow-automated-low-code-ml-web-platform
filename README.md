@@ -1,9 +1,9 @@
 # DataFlow
 
-> Landing page: (dataflow.kz)[http://dataflow.kz/]
-> Web Platform (Workspace): (dataflow.app)[https://dataflow.onrender.com/]
-> Web Page Design Repository (Frontend): ()[]
-> Figma Design Concept (Future): ()[]
+> Landing page: [dataflow.kz](http://dataflow.kz/)
+> Web Platform (Workspace): [dataflow.app](https://dataflow.onrender.com/)
+> Web Page Design Repository (Frontend): [github.com/dataflow]()
+> Figma Design Concept (Future): [figma.com/dataflow]()
 
 <!-- PROJECT SHIELDS -->
 [![Contributors][contributors-shield]][contributors-url] [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url]
