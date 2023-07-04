@@ -650,11 +650,9 @@ if selected == 'Deploying':
                 st.write("Prediction:", prediction)
         ''', language='python')
         button = st.button('Finish')
-        baloons = st.balloons()
-        if baloons:
+        if button:
             st.success('Congratulations! You have successfully completed the DataFlow ML Web Platform.')
-            time.sleep(5)
-            st.experimental_rerun()
+            st.balloons()
     else:
         st.warning('Model is not trained yet!')
     expander = st.expander("See explanation")
