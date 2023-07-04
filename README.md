@@ -20,13 +20,13 @@
 ## 📝 About The Project
 *DataFlow* is an educational Low-Code web platform, perfect for beginners in the field of Data Science.
 
-[![Demonstration Screenshot 1][data-1]](#)]
+[![Demonstration Screenshot 1][data-1]](#)
 
-[![Demonstration Screenshot 2][data-2]](#)]
+[![Demonstration Screenshot 2][data-2]](#)
 
 **🆕 NEW**: *DataFlow* Web App: `streamlit run app.py` ~ just clone, install prerequisites & run:
 
-[![Demonstration Screenshot 3][data-3]](#)]
+[![Demonstration Screenshot 3][data-3]](#)
 
 ----
 
@@ -78,7 +78,7 @@
 
 <!-- CONTACT -->
 ## Contact
-[![Linkedin][linkedin-shield]][linkedin-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
 🧐 Author: Arman Zhalgasbayev - [@grembim](https://www.instagram.com/grembim/)
 
@@ -102,7 +102,10 @@
 [stars-url]: https://github.com/silvermete0r/dataflow-automated-low-code-ml-web-platform/stargazers
 [issues-shield]: https://img.shields.io/github/issues/silvermete0r/dataflow-automated-low-code-ml-web-platform.svg?style=flat-square
 [issues-url]: https://github.com/silvermete0r/dataflow-automated-low-code-ml-web-platform/issues
+[license-shield]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
+[license-url]: https://choosealicense.com/licenses/mit
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/arman-zhalgasbayev/
 [data-1]: https://sun9-34.userapi.com/impg/fIgr9AMAaxOV8izCr4DktngJExMOUxIgVLzPdQ/WI6V2QT8wKU.jpg?size=2232x1180&quality=95&sign=787e4117d8ef13dc70a81d3650b10d00&type=album
 [data-2]: https://sun9-69.userapi.com/impg/dE3ONqKNQ3ZOoCxy5EsvBSsTkqeUZIRyyzl6pQ/FelCAGChV_w.jpg?size=2230x1180&quality=95&sign=3996ba966ca08c88626fdbc1c87466ed&type=album
 [data-3]: https://sun9-46.userapi.com/impg/SIdMvJ08V5oI9RfKOHrgvHYqyvpTPxeGv0FHGQ/cNGH9X6rXkg.jpg?size=2235x1177&quality=95&sign=0df018490766d60630bde8a8df8014f1&type=album
->>>>>>> 981ec6d37c04658cfaa94fb38cc7f23900c3f25e
