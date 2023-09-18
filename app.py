@@ -143,8 +143,8 @@ if selected == 'Home':
 
     st.markdown("If you have any questions or suggestions, feel free to contact us:")
     st.markdown("- Email: info@dataflow.com")
-    st.markdown("- Phone: +7(777)-3248-953")
-    st.markdown("- Address: Uly Dala, 57, Astana")
+    st.markdown("- Phone: +7(777)-7777-777")
+    st.markdown("- Address: Mangilik El, 58, Astana")
 
     st.markdown("---")
     st.subheader("Leave a Feedback")
